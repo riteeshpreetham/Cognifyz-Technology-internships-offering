@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Opportunities at Cognifyz Technologies</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, hsl(220, 5%, 88%), hsl(0, 0%, 100%));
+            color: hwb(0 0% 100%);
+            overflow-x: hidden;
+            position: relative;
+        }
+        header {
+            background-color: rgb(225, 0, 255);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        nav {
+            background-color: #b346b1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav a {
+            color: #ecf0f1;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            display: block;
+        }
+
+        nav a:hover {
+            background-color: #2980b9;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #34495e;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            min-width: 160px;
+        }
+
+        .dropdown-content a {
+            color: #ecf0f1;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #2980b9;
+        }
+
+        nav ul li:hover .dropdown-content {
+            display: block;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .section {
+            margin-bottom: 40px;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            margin-top: 0;
+            color: hsla(2, 100%, 50%, 0.922);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        .section ul li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .section ul li:hover {
+            transform: scale(1.05);
+        }
+
+        .section ul li:before {
+            content: "\2022";
+            margin-right: 10px;
+            color: #f1c40f;
+            font-size: 20px;
+        }
+
+        .cta-button {
+            background-color: #27ae60;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background-color: #2ecc71;
+            transform: scale(1.05);
+        }
+
+        .footer {
+            background-color: hsl(291, 100%, 50%);
+            padding: 20px;
+            text-align: center;
+            color: hsl(0, 0%, 100%);
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #f1c40f;
+        }
+
+        .slide-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 100%;
+            background: #bd47a3;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: slideIn 2s ease forwards;
+        }
+
+        .slide {
+            display: none;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .slide img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .navigation button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navigation button:hover {
+            background-color: #cc00ff;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            .section h2 {
+                font-size: 20px;
+            }
+
+            .section ul li {
+                font-size: 14px;
+            }
+
+            .cta-button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px;
+            animation: fadeInLogo 2s ease-in-out;
+        }
+
+        @keyframes fadeInLogo {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fcognifyz.com%2F&psig=AOvVaw0FkpI2Qi22kRy9OilCA5zZ&ust=1721749811610000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLj61_3_uocDFQAAAAAdAAAAABAE" alt="Cognifyz Technologies Logo" class="logo">
+
+    <header class="header">
+        <h1>Cognifyz Technologies</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Career</a></li>
+            <li>
+                <a href="#">Internships</a>
+                <div class="dropdown-content">
+                    <a href="#">Full Stack</a>
+                    <a href="#">Data Science</a>
+                    <a href="#">AI</a>
+                    <a href="#">ML</a>
+                    <a href="#">Data Mining</a>
+                </div>
+            </li>
+            <li><a href="#">Courses</a>
+            <div class="dropdown-content">
+            <a href="#">Frount-end development</a>
+            <a href="#">Back-end development</a>
+            <a href="#">Artificial inteligence</a>
+            <a href="#">Machine Learning</a>
+            <a href="#">Data Science</a>
+            <a href="#">Data Mining</a>
+            <a href="#">Cyber Security</a>
+            </div>
+            </li>
+            <li><a href="#">Services</a>
+            <div class="dropdown-content">
+                    <a href="#">Guidence</a>
+                    <a href="#">Webinar</a>
+                    <a href="#">Live sessions</a>
+                    <a href="#">Impact Class</a>
+                    <a href="#">Doubt Sessions</a>
+                </div>
+                </li>
+            <li><a href="#">Contact</a>
+                        <div class="dropdown-content">
+                    <a href="#">cognifyztechnologies@gmail.com</a>
+                </div>
+                </li>
+        </ul>
+    </nav>
+    <main>
+        <div class="container">
+            <div class="section">
+                <h2>Unlock Your Potential as a Web Developer</h2>
+                <p>Are you a budding web developer looking to gain real-world experience and kickstart your career? Our internship program at Cognifyz Technologies is the perfect opportunity for you! Our 3-month internship program is designed to provide you with hands-on experience, mentorship, and the chance to work on exciting projects.</p>
+            </div>
+            <div class="section">
+                <h2>What You'll Gain</h2>
+                <ul>
+                    <li>Real-world experience: Work on live projects and contribute to the development of innovative solutions.</li>
+                    <li>Mentorship: Learn from experienced web developers and get feedback on your work.</li>
+                    <li>Career growth: Enhance your skills and build a strong portfolio to boost your career prospects.</li>
+                    <li>Collaborative environment: Be part of a dynamic team and learn from others.</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h2>Requirements</h2>
+                <ul>
+                    <li>Basic knowledge of HTML, CSS, and JavaScript</li>
+                    <li>Familiarity with front-end frameworks such as React or Angular</li>
+                    <li>Understanding of back-end technologies such as Node.js or Ruby on Rails</li>
+                    <li>Experience with version control systems like Git</li>
+                    <li>Strong problem-solving skills and attention to detail</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h2>Take the First Step</h2>
+                <button class="cta-button">Apply Now</button>
+            </div>
+            <div class="slide-container">
+                <div class="slide active">
+                    <h2>Web Development</h2>
+                    <p>Build stunning and interactive web applications with the latest technologies.</p>
+                    <img src="https://miro.medium.com/v2/resize:fit:780/0*c76zWkylO5ltFqsR.jpg" alt="Web Development">
+                </div>
+                <div class="slide">
+                    <h2>AI/ML</h2>
+                    <p>Dive into the world of Artificial Intelligence and Machine Learning, developing cutting-edge solutions.</p>
+                    <img src="https://nietm.in/wp-content/uploads/2022/12/AI3.png" alt="AI/ML">
+                </div>
+                <div class="slide">
+                    <h2>Data Science</h2>
+                    <p>Explore the power of data, analyze trends, and gain insights to drive decision-making.</p>
+                    <img src="https://letsintern.in/wp-content/uploads/2024/03/DS1.png" alt="Data Science">
+                </div>
+                <div class="slide">
+                    <h2>Data Analytics</h2>
+                    <p>Master the art of data analysis to uncover valuable insights and trends.</p>
+                    <img src="https://miro.medium.com/v2/resize:fit:800/0*OqcIHYENsQGpHN-9.jpg" alt="Data Analytics">
+                </div>
+                <div class="slide">
+                    <h2>Cyber Security</h2>
+                    <p>Learn to protect systems and networks from cyber threats with advanced security measures.</p>
+                    <img src="https://onlinedegrees.sandiego.edu/wp-content/uploads/2021/03/CyberSecurity.png" alt="Cyber Security">
+                </div>
+            </div>
+            <div class="navigation">
+                <button onclick="prevSlide()">Previous</button>
+                <button onclick="nextSlide()">Next</button>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+    </footer>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+    </script>
+    <footer class="footer">
+        <p>&copy; 2023 Cognifyz Technologies. All rights reserved.</p>
+        <p>Contact us: <a href="mailto:info@cognifyz.com">info@cognifyz.com</a></p>
+    </footer>
+    </body>
+</body>
+</html>
