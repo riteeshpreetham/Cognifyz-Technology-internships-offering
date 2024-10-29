@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Interactive Webpage</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    /* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    color: #444;
+    text-align: center;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+}
+
+/* Header styling */
+header h1 {
+    font-size: 2.5em;
+    color: #333;
+    animation: slideIn 1s ease-out;
+}
+
+header p {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    color: #666;
+    animation: fadeIn 1.5s ease-in;
+}
+
+/* Animation keyframes */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animated button styling */
+.animated-button {
+    padding: 12px 24px;
+    margin: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.animated-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+}
+
+.animated-button:active {
+    transform: translateY(2px);
+}
+
+/* Calculator styling */
+.calculator {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.calculator:hover {
+    transform: scale(1.02);
+}
+
+.calculator input {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#result {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #007bff;
+    animation: fadeIn 1s ease-in;
+}
+</style>
+    <script src="script.js" defer></script>
+    <script>
+    // Change button color with an animated effect on click
+document.getElementById("colorButton").addEventListener("click", function() {
+    this.style.backgroundColor = this.style.backgroundColor === "purple" ? "#007bff" : "purple";
+    this.classList.add("clicked-animation");
+
+    // Remove the animation class after a short delay
+    setTimeout(() => this.classList.remove("clicked-animation"), 200);
+});
+
+// Display greeting based on current time
+function showGreeting() {
+    const now = new Date();
+    const hour = now.getHours();
+    let greeting;
+
+    if (hour < 12) {
+        greeting = "Good morning!";
+    } else if (hour < 18) {
+        greeting = "Good afternoon!";
+    } else {
+        greeting = "Good evening!";
+    }
+
+    alert(greeting);
+}
+
+// Basic calculator for adding two numbers
+function addNumbers() {
+    const num1 = parseFloat(document.getElementById("num1").value);
+    const num2 = parseFloat(document.getElementById("num2").value);
+    const result = num1 + num2;
+
+    // Display the result with a smooth fade-in effect
+    const resultElement = document.getElementById("result");
+    resultElement.textContent = `Result: ${result}`;
+    resultElement.classList.add("fade-in-animation");
+
+    // Remove the fade-in animation class after it finishes
+    setTimeout(() => resultElement.classList.remove("fade-in-animation"), 1000);
+}
+</script>
+</head>
+<body>
+    <header>
+        <h1>Simple Calculator</h1>
+    </header>
+
+    <!-- Button that changes color -->
+    <button id="colorButton" class="animated-button">Click me to change color</button>
+
+    <!-- Greeting Message Button -->
+    <button onclick="showGreeting()" class="animated-button">Greet Me</button>
+
+    <!-- Calculator for adding two numbers -->
+    <div class="calculator">
+        <input type="number" id="num1" placeholder="Enter first number">
+        <input type="number" id="num2" placeholder="Enter second number">
+        <button onclick="addNumbers()" class="animated-button">Add</button>
+        <p id="result"></p>
+    </div>
+</body>
+</html>
