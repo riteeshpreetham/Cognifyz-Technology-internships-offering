@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Webpage</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    /* Reset some default styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style for body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Navigation Menu */
+nav {
+    background-color: #333;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content Section */
+#main-content {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#main-content h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#main-content p {
+    margin-bottom: 20px;
+}
+
+/* Image */
+#main-content img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Form */
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="text"] {
+    padding: 8px;
+    width: calc(100% - 18px); /* Adjust width to fit container */
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #555;
+}
+</style>
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <section id="main-content">
+        <h1>Welcome to My Simple Webpage</h1>
+        <p>This is a basic webpage created using HTML and CSS. Below is an image and a sample form.</p>
+
+        <!-- Image -->
+        <img src="https://via.placeholder.com/400" alt="Sample Image">
+
+        <!-- Form -->
+        <form action="#" method="post">
+            <label for="name">Enter your name:</label>
+            <input type="text" id="name" name="name" required>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+</body>
+</html>
